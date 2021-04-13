@@ -1,0 +1,184 @@
+/* main */
+body {
+    background-image: url("./background.png");
+    color: white;
+    background-attachment: fixed;
+
+}
+
+.App > * {
+    outline: 1px solid red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 3vh;
+}
+
+.App {
+    display: grid;
+    grid-template-areas: 'head head head'
+                       'navi content content'
+                       'footer footer footer';
+    grid-template-columns:  auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 2vh;
+    height: 100vh;
+
+}
+
+.head {
+    grid-area: head;
+}
+
+.head img {
+    width: 100px;
+    height: 100px;
+}
+
+.navigation {
+    grid-area: navi;
+    padding: 10px;
+    align-self: auto;
+}
+
+.content {
+    grid-area: content;
+    width: 70vw;
+}
+
+.footer {
+    grid-area: footer;
+
+}
+
+.navigation {
+    width: 7vw;
+}
+
+/*navi*/
+
+.navigation div a {
+    text-decoration: none;
+    line-height: 1.3em;
+}
+
+.navigation div a:hover {
+    color: cornflowerblue;
+}
+
+/*User page*/
+
+.content {
+    display: grid;
+    grid-template-columns:  auto 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 2vw;
+}
+
+.content > div {
+    outline: 1px solid blue;
+}
+
+.user-inform {
+    display: block;
+
+}
+
+.user-inform .informvalue > div {
+    position: relative;
+    color: darkgray;
+    line-height: 1.6em;
+
+}
+
+.user-inform .informvalue > div > div {
+    color: white;
+    display: inline-block;
+    position: absolute;
+    left: 12vw;
+}
+
+.userimage img {
+
+    border-radius: 50%;
+}
+
+.userimage {
+    width: 225px;
+    height: 225px;
+}
+
+.user-content {
+    position: relative;
+    top: 2px;
+    box-sizing: border-box;
+    width: 225px;
+
+}
+
+.user-content > div {
+    outline: 1px solid darkgoldenrod;
+    margin: 1vh 0;
+}
+
+/*POSTS*/
+fieldset {
+    display: block;
+    position: relative;
+    width: 30%;
+
+}
+
+#newpost textarea {
+    resize: none;
+
+}
+
+#newpost > * {
+    display: block;
+    margin-bottom: 2vh;
+    color: black;
+}
+.allposts{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+.post{
+    position: relative;
+    box-sizing: border-box;
+    width:100%;
+    height:auto;
+    padding-left:8vw;
+    outline: 1px solid gray;
+    padding-bottom: 40px;
+}
+.post img{
+    top:20px;
+    left:10px;
+    position: absolute;
+    display: block;
+    height: 100px;
+    width:100px;
+    border-radius:50%;
+
+}
+.time-in-post{
+    position: absolute;
+    display: block;
+    top: 20px;
+    right: 40px;
+
+}
+.post .username {
+    position: relative;
+    top:20px;
+    left:20px;
+}
+
