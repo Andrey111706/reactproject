@@ -4,6 +4,7 @@ const Header = function (){
     return(
         <header className='head'>
             <img src='logo.png'
+                 hello world my dear
             alt={''}/>
         </header>
     )
