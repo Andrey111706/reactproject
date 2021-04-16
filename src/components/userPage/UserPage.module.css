@@ -3,8 +3,8 @@
     grid-template-columns:  auto 1fr;
     grid-template-rows: auto auto;
     grid-gap: 2vw;
+    width: 70vw;
 }
-
 .content > div {
     outline: 1px solid blue;
 }

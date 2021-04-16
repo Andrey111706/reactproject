@@ -3,7 +3,7 @@ import s from "./UserPage.module.css"
 
 const UserPage = function () {
     return (
-        <div className={`${s.content} content`}>
+        <div className={`${s.content} userPage`}>
             <div className={s.userimage}>
                 <img src='./user-image.jpg' alt=''/>
             </div>

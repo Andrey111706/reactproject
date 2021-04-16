@@ -6,3 +6,9 @@
 .navigation div a:hover {
     color: cornflowerblue;
 }
+.navigation {
+    grid-area: navi;
+    padding: 10px;
+    align-self: auto;
+    width: 7vw;
+}

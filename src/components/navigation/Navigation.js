@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Navigation.module.css"
 const Navigation = function () {
     return (
-        <nav className={`${s.navigation}  navi`}>
+        <nav className={`${s.navigation}  navigation`}>
             <div><a href={'#1'}>My page</a></div>
             <div><a href={'#2'}>Feed</a></div>
             <div><a href={'#3'}>Chat</a></div>

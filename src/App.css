@@ -1,4 +1,3 @@
-
 body {
     background-image: url("./background.png");
     color: white;
@@ -35,14 +34,11 @@ body {
 
 .navigation {
     grid-area: navi;
-    padding: 10px;
-    align-self: auto;
-    width: 7vw;
+
 }
 
-.content {
+.userPage {
     grid-area: content;
-    width: 70vw;
 }
 
 .footer {
