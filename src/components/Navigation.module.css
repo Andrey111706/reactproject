@@ -1,0 +1,8 @@
+.navigation div a {
+    text-decoration: none;
+    line-height: 1.3em;
+}
+
+.navigation div a:hover {
+    color: cornflowerblue;
+}
