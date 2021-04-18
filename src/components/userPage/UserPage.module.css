@@ -13,6 +13,7 @@
 .userInform {
     display: block;
     position: relative;
+    height: auto;
 
 }
 

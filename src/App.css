@@ -1,8 +1,11 @@
+html{
 
+}
 body {
     background-image: url("./background.png");
     color: white;
     background-attachment: fixed;
+
 
 
 }
@@ -19,6 +22,7 @@ body {
 }
 
 .App{
+    width: 100%;
     display: grid;
     grid-template-areas: 'head head head'
                        'navi content content'
@@ -42,6 +46,7 @@ body {
 .app-content {
     grid-area: content;
     min-width: 720px;
+
 }
 
 .footer {
