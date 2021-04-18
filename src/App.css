@@ -39,7 +39,7 @@ body {
 
 }
 
-.userPage {
+.app-content {
     grid-area: content;
     min-width: 720px;
 }
