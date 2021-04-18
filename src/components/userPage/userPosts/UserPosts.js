@@ -9,7 +9,7 @@ const UserPosts = function () {
                 <fieldset>
                     <legend>New Post</legend>
                     <form id={s.newpost} method="post">
-                        <textarea rows="4"  name="text" placeholder={'Write, pls!'}>1</textarea>
+                        <textarea rows="4"  name="text" placeholder={'Write, please!'}>1</textarea>
                         <input type="submit" value="Отправить"/>
                     </form>
                 </fieldset>

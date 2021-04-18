@@ -9,7 +9,7 @@ function App() {
         <div className="App">
             <Header />
             <Navigation />
-            <UserPage />
+            <UserPage/>
             <Footer />
         </div>
     );

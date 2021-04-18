@@ -2,7 +2,7 @@ import React from "react";
 import UserPosts from "./userPosts/UserPosts";
 import s from "./UserPage.module.css"
 
-const UserPage = function () {
+const UserPage = function (props) {
     return (
         <div className={`${s.userPage} userPage`}>
 
@@ -13,9 +13,9 @@ const UserPage = function () {
             <div className={s.userInform}>
                 <div className={s.informvalue}>
                     <div>Username
-                        <div className={s.username}>Jack Black</div>
+                        <div  className={s.username}>Jack Black</div>
                     </div>
-                    <div>Sex
+                    <div>Sexg
                         <div className={s.sex}>Horse</div>
                     </div>
                     <div>City
