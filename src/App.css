@@ -18,7 +18,7 @@ body {
     font-size: 3vh;
 }
 
-.App {
+.App{
     display: grid;
     grid-template-areas: 'head head head'
                        'navi content content'

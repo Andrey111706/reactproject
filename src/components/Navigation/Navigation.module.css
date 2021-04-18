@@ -13,3 +13,6 @@
     width: 7vw;
     min-width: 76px;
 }
+.active {
+    color:deepskyblue;
+}

@@ -1,7 +1,7 @@
  import  s from  "./Chat.module.css"
 const Chat = () => {
     return (
-        <div className={Chat}>
+        <div className={s.Chat}>
                 Chat
         </div>
  )

@@ -15,7 +15,7 @@ const UserPage = function (props) {
                     <div>Username
                         <div  className={s.username}>Jack Black</div>
                     </div>
-                    <div>Sexg
+                    <div>Sex
                         <div className={s.sex}>Horse</div>
                     </div>
                     <div>City
