@@ -1,8 +1,9 @@
 import React from "react";
-import UserPosts from "./userPosts/UserPosts";
 import s from "./UserPage.module.css"
+import UserInform from "./userInform/userInform";
+import UserPosts from "./userPosts/UserPosts";
 
-const UserPage = function (props) {
+const UserPage = function () {
     return (
         <div className={`${s.userPage} userPage`}>
 
@@ -10,43 +11,19 @@ const UserPage = function (props) {
                 <img src='./user-image.jpg' alt=''/>
             </div>
 
-            <div className={s.userInform}>
-                <div className={s.informvalue}>
-                    <div>Username
-                        <div  className={s.username}>Jack Black</div>
-                    </div>
-                    <div>Sex
-                        <div className={s.sex}>Horse</div>
-                    </div>
-                    <div>City
-                        <div className={s.city}>London</div>
-                    </div>
-                    <div>Familystage
-                        <div className={s.familystage}>Inseminator</div>
-                    </div>
-                    <div>Work
-                        <div className={s.work}>Farm</div>
-                    </div>
-                    <div>Family
-                        <div className={s.sisbro}>
-                            <div>horse-brother</div>
-                            <div>horse-sister</div>
-                        </div>
-                    </div>
-                </div>
+            <UserInform UserName="Black Jack" sex="Horse" city="London"
+                        familystage="Insamenator" work="farm"
+                        family="horse-brother" />
 
-
-            </div>
-
-            <div className={s.userContent}>
+                <div className={s.userContent}>
                 <div className={s.userImage}>user-image</div>
                 <div className={s.userMusic}>user-music</div>
                 <div className={s.userVideo}>user-video</div>
-            </div>
+                </div>
 
-            <UserPosts />
+                <UserPosts />
 
-        </div>
-    )
-}
-export default UserPage;
+                </div>
+                )
+            }
+            export default UserPage;

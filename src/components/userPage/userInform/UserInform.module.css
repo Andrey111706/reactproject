@@ -1,0 +1,33 @@
+
+.userInform {
+    display: block;
+    position: relative;
+    height: auto;
+
+}
+
+.userInform .informvalue > div {
+    position: relative;
+    color: darkgray;
+    line-height: 1.6em;
+
+}
+
+.userInform .informvalue > div > div {
+    color: white;
+    display: inline-block;
+    position: absolute;
+    left: 130px;
+}
+
+.userimage img {
+
+    border-radius: 50%;
+}
+
+.userimage {
+    width: 225px;
+    height: 225px;
+}
+
+
