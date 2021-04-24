@@ -14,7 +14,7 @@
 .chatList{
     padding-left: 20px;
     padding-right: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 80vh;
 }
 .chatItem{

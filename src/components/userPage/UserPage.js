@@ -3,6 +3,9 @@ import s from "./UserPage.module.css"
 import UserInform from "./userInform/userInform";
 import UserPosts from "./userPosts/UserPosts";
 
+
+
+
 const UserPage = function () {
     return (
         <div className={`${s.userPage} userPage`}>

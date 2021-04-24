@@ -3,35 +3,41 @@ import {NavLink} from "react-router-dom"
 
 const ChatItem = (props) => {
 
-return (<div className={s.chatItem}>
-    <NavLink to={"/chat/"+props.id}>{props.name}</NavLink>
+    return (<div className={s.chatItem}>
+        <NavLink to={"/chat/" + props.id}>{props.name}</NavLink>
     </div>)
 }
+let     chatUsersData = [
+    {id: 1, name: "Viktoria"},
+    {id: 2, name: "Ivan"},
+    {id: 3, name: "Semen"},
+    {id: 4, name: "Lorem ipsum dolor sit amet"}
+];
+let chatMessageData = [
+    {id: 1, message: "Шо там Віка"},
+    {id: 2, message: "Шо там Ванька"},
+    {id: 3, message: "Шо там Гріша"},
+    {id: 4, message: "Шо там Олег"},
+    {id: 5, message: "Шо там Лорем іпсум долор"},
+]
+
+let ChatItems = chatUsersData.map(function (item) {
+    return <ChatItem id={item.id} name={item.name}/>
+})
+let chatMessages = chatMessageData.map(function (item) {
+    return (<div className={s.chatMessage} id={item.id}>{item.message}</div>)
+})
 
 const Chat = () => {
     return (
         <div className={s.chatContainer}>
             <div className={s.chatList}>
-                <ChatItem id="1" name="Viktoria"/>
-                <ChatItem id="2" name="Ivan"/>
-                <ChatItem id="3" name="Semen"/>
-                <ChatItem id="4" name="Lorem ipsum dolor sit amet"/>
-                <ChatItem id="1" name="Viktoria"/>
-                <ChatItem id="2" name="Ivan"/>
-                <ChatItem id="3" name="Semen"/>
-                <ChatItem id="4" name="Lorem ipsum dolor sit amet"/>
-                <ChatItem id="1" name="Viktoria"/>
-                <ChatItem id="2" name="Ivan"/>
-                <ChatItem id="3" name="Semen"/>
-                <ChatItem id="4" name="Lorem ipsum dolor sit amet"/>
-                <ChatItem id="4" name="Lorem ipsum dolor sit amet"/>
-
+                {ChatItems}
             </div>
 
             <div className={s.chatContent}>
-                <div className={s.chatMessage}>1234</div>
-                <div className={s.chatMessage}>Hello</div>
-                <div className={s.chatMessage}>World</div>
+                {chatMessages}
+
             </div>
         </div>
     )
