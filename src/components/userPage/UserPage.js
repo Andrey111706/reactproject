@@ -4,9 +4,7 @@ import UserInform from "./userInform/userInform";
 import UserPosts from "./userPosts/UserPosts";
 
 
-
-
-const UserPage = function () {
+const UserPage = function (props) {
     return (
         <div className={`${s.userPage} userPage`}>
 
@@ -24,7 +22,7 @@ const UserPage = function () {
                 <div className={s.userVideo}>user-video</div>
                 </div>
 
-                <UserPosts />
+                <UserPosts PostsData={props.PostsData} />
 
                 </div>
                 )

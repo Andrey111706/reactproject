@@ -2,27 +2,14 @@ import React from "react";
 import s from "./UserPosts.module.css"
 import Post from "./post/post";
 
-let PostsData = [
-    {
-        id:1,
-        username: "Jack Black",
-        time:"14:40 11.04.2021",
-        text:"lorem"
-    },
-    {
-        id:2,
-        username: "Jack Black",
-        time:"14:40 11.04.2021",
-        text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, error!"
-    },
-]
 
-    let Posts = PostsData.map(function (post) {
+const UserPosts = function (props) {
+
+    let Posts = props.PostsData.map(function (post) {
         return <Post id={post.id} username={post.username} time={post.time} text={post.text}/>
     })
 
 
-const UserPosts = function () {
     return (
         <div className={s.userPosts}>
             <div className={s.postinput}>

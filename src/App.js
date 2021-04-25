@@ -11,20 +11,23 @@ import Photo from "./components/Photo/Photo";
 import Settings from "./components/Settings/Settings";
 
 
-
-function App() {
+function App(props) {
     return (
         <BrowserRouter>
             <div className="App">
                 <Header/>
                 <Navigation/>
                 <div className='app-content'>
-                    <Route path='/chat' component={Chat}/>
-                    <Route path='/userPage' component={UserPage}/>
-                    <Route path='/feed' component={Feed}/>
-                    <Route path='/music' component={Music}/>
-                    <Route path='/photo' component={Photo}/>
-                    <Route path='/settings' component={Settings}/>
+
+                    <Route path='/userPage'
+                           render={() => <UserPage PostsData={props.state.mainPage.PostsData}/>}/>
+                    <Route path='/chat'
+                           render={() => <Chat chatUsersData={props.state.chatPage.chatUsersData}
+                                               chatMessageData={props.state.chatPage.chatMessageData}/>}/>
+                    <Route path='/feed' render={() => <Feed/>}/>
+                    <Route path='/music' render={() => <Music/>}/>
+                    <Route path='/photo' render={() => <Photo/>}/>
+                    <Route path='/settings' render={() => <Settings/>}/>
                 </div>
                 <Footer/>
             </div>
