@@ -1,32 +1,109 @@
-.chatContainer{
+.chatContainer {
     display: grid;
     position: relative;
     width: 90%;
-    outline: 1px solid red;
-    grid-template-columns: 300px 1fr ;
-    grid-column-gap:40px;
+    height: auto;
+    outline: 1px solid #ffc800;
+    grid-template-columns: 300px 1fr;
+    grid-column-gap: 40px;
     padding: 10px;
-    border-radius:10px;
+    border-radius: 10px;
 }
+
 .chatContainer > div {
     outline: 1px solid red;
+    height: auto;
+    box-sizing: border-box;
 }
-.chatList{
+
+.chatList {
     padding-left: 20px;
     padding-right: 10px;
     overflow-y: auto;
-    height: 80vh;
-}
-.chatItem{
-    border-bottom:1px solid antiquewhite;
-    padding:2px 0;
+    height: auto;
 }
 
-.chatItem a{
+.chatItem {
+    border-bottom: 1px solid antiquewhite;
+    padding: 2px 0;
+}
+
+.chatItem a {
     display: block;
     width: 100%;
     height: 100%;
     text-decoration: none;
     padding: 20px 0;
 
+}
+
+.message {
+    padding: 0.5vw;
+    width: 90%;
+    height: auto;
+    outline: 1px solid green;
+    display: flex;
+    position: relative;
+
+    margin-bottom: 5px;
+}
+
+.userInfo {
+    display: block;
+    position: relative;
+    width: 15%;
+    outline: 1px solid blue;
+}
+
+.userText {
+    width: 100%;
+    display: block;
+    order: 2;
+}
+
+.userImage {
+    width: 80%;
+    margin-left: 50%;
+    transform: translate(-50%);
+    border-radius: 50%;
+}
+
+.userName {
+    width: 100%;
+    height: auto;
+    font-size: 1vw;
+    text-align: center;
+}
+
+.myMessage {
+    order: 1;
+}
+
+.notmyMessage {
+    order: 3;
+}
+
+.messagesHolder {
+    position: relative;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.chatContent {
+    position: relative;
+    height: 90%;
+}
+
+.chatContent textarea {
+    width: 100%;
+    height: 5vw;
+    font-size: 2vh;
+    color: black;
+}
+
+button {
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+    margin-right: 10px;
 }

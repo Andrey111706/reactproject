@@ -1,18 +1,25 @@
+import rerender from "../render";
 
 let state = {
-    mainPage:{
+    mainPage: {
         PostsData: [
             {
-                id:1,
+                id: 1,
                 username: "Jack Black",
-                time:"14:40 11.04.2021",
-                text:"lorem"
+                time: "14:40 11.04.2021",
+                text: "Hi))) JUST DO IT!!!"
             },
             {
-                id:2,
+                id: 2,
                 username: "Jack Black",
-                time:"14:40 11.04.2021",
-                text:"Lorem ipsum dolor sit amet, HEEEELLLLOOOO!!!!"
+                time: "14:40 11.04.2021",
+                text: "lorem"
+            },
+            {
+                id: 3,
+                username: "Jack Black",
+                time: "14:40 11.04.2021",
+                text: "Lorem ipsum dolor sit amet, HEEEELLLLOOOO!!!!"
             },
         ],
     },
@@ -24,12 +31,26 @@ let state = {
             {id: 4, name: "Lorem ipsum dolor sit amet"}
         ],
         chatMessageData: [
-            {id: 1, message: "Шо там Віка"},
-            {id: 2, message: "Шо там Ванька"},
-            {id: 3, message: "Шо там Гріша"},
-            {id: 4, message: "Шо там Олег"},
-            {id: 5, message: "Шо там Лорем іпсум долор"},
+            {id: 1, message: "Шо там Віка", my: true},
+            {id: 2, message: "Шо там Ванька", my: true},
+            {id: 3, message: "Шо там Гріша", my: true},
+            {id: 4, message: "Шо там Олег", my: false},
+            {id: 5, message: "Шо там Лорем іпсум долор", my: false},
+
         ]
     }
 }
+
+let AddMessage = (messageText) => {
+    let newmessage = {
+        id: 6,
+        my: true,
+        message: messageText
+    }
+    state.chatPage.chatMessageData.push(newmessage);
+    rerender(state);
+
+}
+
+export {AddMessage}
 export default state;

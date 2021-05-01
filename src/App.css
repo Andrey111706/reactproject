@@ -1,10 +1,9 @@
-html{
 
-}
 body {
     background-image: url("./background.png");
     color: white;
     background-attachment: fixed;
+    font-size: 3vh;
 
 
 
@@ -17,8 +16,8 @@ body {
 * {
     margin: 0;
     padding: 0;
-    color: white;
-    font-size: 3vh;
+    color:white;
+
 }
 
 .App{

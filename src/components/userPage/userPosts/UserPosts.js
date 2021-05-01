@@ -17,7 +17,7 @@ const UserPosts = function (props) {
                     <legend>New Post</legend>
                     <form id={s.newpost} method="post">
                         <textarea rows="4" name="text" placeholder={'Write, please!'}>1</textarea>
-                        <input type="submit" value="Отправить"/>
+                        <input type="submit" value="Отправить" className={s.inputsub}/>
                     </form>
                 </fieldset>
             </div>

@@ -11,6 +11,7 @@ import Photo from "./components/Photo/Photo";
 import Settings from "./components/Settings/Settings";
 
 
+
 function App(props) {
     return (
         <BrowserRouter>
@@ -18,12 +19,12 @@ function App(props) {
                 <Header/>
                 <Navigation/>
                 <div className='app-content'>
-
                     <Route path='/userPage'
                            render={() => <UserPage PostsData={props.state.mainPage.PostsData}/>}/>
                     <Route path='/chat'
                            render={() => <Chat chatUsersData={props.state.chatPage.chatUsersData}
-                                               chatMessageData={props.state.chatPage.chatMessageData}/>}/>
+                                               chatMessageData={props.state.chatPage.chatMessageData}
+                                                addmessage={props.addmessage}/>}/>
                     <Route path='/feed' render={() => <Feed/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/photo' render={() => <Photo/>}/>
