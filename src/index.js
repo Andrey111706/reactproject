@@ -1,9 +1,21 @@
 import React from 'react';
 import reportWebVitals from './reportWebVitals';
-import state from "./Redux/state";
-import rerender from "./render";
+import store from "./Redux/state";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-rerender(state);
+let renderTree = () =>{
+    ReactDOM.render(
+        <React.StrictMode>
+            <App state={store.getState()} dispatch={store.dispatch.bind(store)} textvalue={store._state.chatPage.textValue}/>
+
+        </React.StrictMode>,
+        document.getElementById('root')
+
+    );
+}
+renderTree()
+store.subscribe(renderTree);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

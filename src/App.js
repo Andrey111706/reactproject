@@ -12,7 +12,10 @@ import Settings from "./components/Settings/Settings";
 
 
 
+
+
 function App(props) {
+
     return (
         <BrowserRouter>
             <div className="App">
@@ -24,16 +27,19 @@ function App(props) {
                     <Route path='/chat'
                            render={() => <Chat chatUsersData={props.state.chatPage.chatUsersData}
                                                chatMessageData={props.state.chatPage.chatMessageData}
-                                                addmessage={props.addmessage}/>}/>
+                                               dispatch={props.dispatch}
+                                               textvalue={props.textvalue} />}/>
                     <Route path='/feed' render={() => <Feed/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/photo' render={() => <Photo/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
+
                 </div>
                 <Footer/>
             </div>
         </BrowserRouter>
     );
+
 }
 
 
