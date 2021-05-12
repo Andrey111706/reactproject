@@ -23,7 +23,9 @@ function App(props) {
                 <Navigation/>
                 <div className='app-content'>
                     <Route path='/userPage'
-                           render={() => <UserPage PostsData={props.state.mainPage.PostsData}/>}/>
+                           render={() => <UserPage PostsData={props.state.mainPage.PostsData}
+                                                   dispatch={props.dispatch}
+                                                    newPostValue={props.state.mainPage.postInputValue}/>}/>
                     <Route path='/chat'
                            render={() => <Chat chatUsersData={props.state.chatPage.chatUsersData}
                                                chatMessageData={props.state.chatPage.chatMessageData}

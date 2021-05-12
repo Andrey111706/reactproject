@@ -18,7 +18,8 @@ fieldset {
     color: black;
 }
 .allposts{
-    display: block;
+    display: flex;
+    flex-direction: column-reverse;
     position: relative;
     width: 95%;
     height: auto;

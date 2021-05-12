@@ -14,17 +14,19 @@ const UserPage = function (props) {
 
             <UserInform UserName="Black Jack" sex="Horse" city="London"
                         familystage="Insamenator" work="farm"
-                        family="horse-brother" />
+                        family="horse-brother"/>
 
-                <div className={s.userContent}>
+            <div className={s.userContent}>
                 <div className={s.userImage}>user-image</div>
                 <div className={s.userMusic}>user-music</div>
                 <div className={s.userVideo}>user-video</div>
-                </div>
+            </div>
 
-                <UserPosts PostsData={props.PostsData} />
+            <UserPosts PostsData={props.PostsData}
+                       dispatch={props.dispatch}
+                    newPostValue={props.newPostValue}/>
 
-                </div>
-                )
-            }
-            export default UserPage;
+        </div>
+    )
+}
+export default UserPage;

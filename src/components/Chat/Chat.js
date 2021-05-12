@@ -2,11 +2,13 @@ import React from "react";
 import s from "./Chat.module.css"
 import ChatUsersItem from "./ChatUsersItem/ChatUsersItem";
 import Message from "./Message/Message";
+import {AddMessageActionCreator, ChangeTextActionCreator} from "../../Redux/state";
+
 
 
 const Chat = (props) => {
     let Addmessage =() =>{
-        console.log(props.dispatch({type:'ADD-MESSAGE'}));
+       props.dispatch(AddMessageActionCreator);
     }
     let sendMessage = React.createRef();
 
@@ -17,7 +19,8 @@ const Chat = (props) => {
 
 
     let textchange = () => {
-        props.dispatch({type:'CHANGE-TEXT', text:sendMessage.current.value})
+        let text=sendMessage.current.value;
+        props.dispatch(ChangeTextActionCreator(text))
 
     }
     return (
