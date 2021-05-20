@@ -1,3 +1,7 @@
+import chatPageReducer from "./chatPageReducer";
+import mainPageReducer from "./mainPageReducer";
+
+
 let store =
     {
         _state: {
@@ -53,47 +57,14 @@ let store =
         },
 
         dispatch(action) {
-            if (action.type === 'ADD-MESSAGE') {
-                let newmessage = {
-                    id: 6,
-                    my: true,
-                    message: this._state.chatPage.textValue
-                }
-                this._state.chatPage.chatMessageData.push(newmessage);
-                this._state.chatPage.textValue = '';
-                this._renderTree();
-
-            } else if (action.type === 'CHANGE-TEXT') {
-                this._state.chatPage.textValue = action.text;
-                this._renderTree();
-
-            } else if (action.type === 'ADD-POST') {
-                let newmessage = {
-                    id: 6,
-                    username: "KOHb",
-                    time: "14:40 11.04.2021",
-                    text: this._state.mainPage.postInputValue
-                }
-                this._state.mainPage.PostsData.push(newmessage);
-                this._state.mainPage.postInputValue = '';
-                this._renderTree();
-
-            } else if (action.type === 'CHANGE-POST-TEXT') {
-                this._state.mainPage.postInputValue = action.text;
-                this._renderTree();
-            }
+            chatPageReducer(this._state.chatPage,action);
+            mainPageReducer(this._state.mainPage,action);
+            this._renderTree();
         }
     }
 
-export const ChangeTextActionCreator = (text) => {
-    return {type: 'CHANGE-TEXT', text: text}};
 
-export const AddMessageActionCreator = {type: 'ADD-MESSAGE'};
 
-export const ChangePostTextActionCreator = (text) => {
-    return {type: 'CHANGE-POST-TEXT', text: text}};
 
-export const AddPostActionCreator = {type: 'ADD-POST'};
-
-window.store = store._state;
+window.state = store._state;
 export default store;

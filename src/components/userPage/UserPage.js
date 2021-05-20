@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./UserPage.module.css"
 import UserInform from "./userInform/userInform";
-import UserPosts from "./userPosts/UserPosts";
+import UserPostsConteiner from "./userPosts/UserPostsConteiner";
 
 
 const UserPage = function (props) {
@@ -22,9 +22,7 @@ const UserPage = function (props) {
                 <div className={s.userVideo}>user-video</div>
             </div>
 
-            <UserPosts PostsData={props.PostsData}
-                       dispatch={props.dispatch}
-                    newPostValue={props.newPostValue}/>
+            <UserPostsConteiner store={props.store}/>
 
         </div>
     )
