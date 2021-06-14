@@ -7,6 +7,7 @@ const Navigation = function () {
         <nav className={`${s.navigation}  navigation`}>
             <div><NavLink to='/userPage' activeClassName={s.active}>My page</NavLink></div>
             <div><NavLink to='/feed' activeClassName={s.active}>Feed</NavLink></div>
+            <div><NavLink to='/users' activeClassName={s.active}>Users</NavLink></div>
             <div><NavLink to='/chat' activeClassName={s.active}>Chat</NavLink></div>
             <div><NavLink to='/photo' activeClassName={s.active}>Photo</NavLink></div>
             <div><NavLink to='/music' activeClassName={s.active}>Music</NavLink></div>

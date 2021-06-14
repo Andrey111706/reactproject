@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./UserPage.module.css"
 import UserInform from "./userInform/userInform";
-import UserPostsConteiner from "./userPosts/UserPostsConteiner";
+import UserPostsContainer from "./userPosts/UserPostsContainer";
 
 
 const UserPage = function (props) {
@@ -22,7 +22,7 @@ const UserPage = function (props) {
                 <div className={s.userVideo}>user-video</div>
             </div>
 
-            <UserPostsConteiner store={props.store}/>
+            <UserPostsContainer store={props.store}/>
 
         </div>
     )

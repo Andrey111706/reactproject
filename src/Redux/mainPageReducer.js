@@ -1,4 +1,3 @@
-
 let initState = {
     PostsData: [
         {
@@ -26,21 +25,25 @@ let initState = {
 
 const mainPageReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'ADD-POST':
+        case 'ADD-POST': {
             let newMessage = {
                 id: 6,
                 username: "KOHb",
                 time: "14:40 11.04.2021",
                 text: state.postInputValue
             }
-            state.PostsData.push(newMessage);
-            state.postInputValue = '';
-            return state;
-
-        case 'CHANGE-POST-TEXT':
-            state.postInputValue = action.text;
-            return state;
-
+            return {
+                ...state,
+                PostsData: [...state.PostsData, newMessage],
+                postInputValue: ''
+            };
+        }
+        case 'CHANGE-POST-TEXT': {
+            return {
+                ...state,
+                postInputValue: action.text
+            };
+        }
         default:
             return state;
     }

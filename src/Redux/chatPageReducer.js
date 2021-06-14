@@ -16,20 +16,24 @@ let initState = {
 }
 const chatPageReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'ADD-MESSAGE':
+        case 'ADD-MESSAGE': {
             let newmessage = {
                 id: 6,
                 my: true,
                 message: state.textValue
             }
-            state.chatMessageData.push(newmessage);
-            state.textValue = '';
-            return state;
-
-        case 'CHANGE-TEXT':
-            state.textValue = action.text;
-            return state;
-
+            return {
+                ...state,
+                chatMessageData: [...state.chatMessageData, newmessage],
+                textValue: ''
+            };
+        }
+        case 'CHANGE-TEXT': {
+            return {
+                ...state,
+                textValue: action.text
+            };
+        }
         default:
             return state;
     }
@@ -38,6 +42,7 @@ const chatPageReducer = (state = initState, action) => {
 export default chatPageReducer;
 
 export const ChangeTextActionCreator = (text) => {
-    return {type: 'CHANGE-TEXT', text: text}};
+    return {type: 'CHANGE-TEXT', text: text}
+};
 
 export const AddMessageActionCreator = {type: 'ADD-MESSAGE'};

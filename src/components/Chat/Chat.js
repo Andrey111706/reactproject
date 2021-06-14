@@ -5,7 +5,6 @@ import Message from "./Message/Message";
 
 
 const Chat = (props) => {
-    debugger;
     let ChatUsers = props.chatUsersData.map(function (item) {
         return <ChatUsersItem id={item.id} name={item.name}/>
     })
@@ -17,7 +16,8 @@ const Chat = (props) => {
 
     let ontextchange = () => {
         let text = sendMessage.current.value;
-        props.textchange(text)
+        props.textChange(text)
+        debugger
     }
     return (
         <div className={s.chatContainer}>
@@ -32,7 +32,7 @@ const Chat = (props) => {
                 </div>
                 <div className={s.sendMessage}>
                     <textarea onChange={ontextchange} name="text" placeholder={'Write, please!'} ref={sendMessage}
-                    value={props.store.getState().chatPage.textValue}/>
+                    value={props.textOnchangeValue}/>
                     <div className={s.send}>
                         <button onClick={props.addMessage}>Send</button>
                         <button>Reset</button>

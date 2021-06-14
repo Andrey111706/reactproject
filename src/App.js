@@ -10,10 +10,10 @@ import Music from "./components/Music/Music";
 import Photo from "./components/Photo/Photo";
 import Settings from "./components/Settings/Settings";
 import ChatContainer from "./components/Chat/ChatContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 function App(props) {
-    debugger
     return (
         <BrowserRouter>
             <div className="App">
@@ -28,6 +28,7 @@ function App(props) {
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/photo' render={() => <Photo/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
+                    <Route path='/users' render={() => <UsersContainer/>}/>
 
                 </div>
                 <Footer/>

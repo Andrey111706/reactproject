@@ -1,21 +1,22 @@
-import React from "react";
+
 import {AddMessageActionCreator, ChangeTextActionCreator} from "../../Redux/chatPageReducer";
 import Chat from "./Chat";
+import {connect} from "react-redux";
 
-
-const ChatContainer = (props) => {
-
-    let addMessage = () => {
-        props.store.dispatch(AddMessageActionCreator);
+let mapStateToProps = (state) =>{
+    return {
+        chatUsersData:state.chatPage.chatUsersData,
+        chatMessageData:state.chatPage.chatMessageData,
+        textOnchangeValue:state.chatPage.textValue
     }
-    let textchange = (text) => {
-        props.store.dispatch(ChangeTextActionCreator(text))
+};
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addMessage: () => {dispatch(AddMessageActionCreator)},
+        textChange: (text) => {dispatch(ChangeTextActionCreator(text))}
     }
-    return <Chat addMessage={addMessage}
-                 textchange={textchange}
-                 store={props.store}
-                 chatUsersData={props.store.getState().chatPage.chatUsersData}
-                 chatMessageData={props.store.getState().chatPage.chatMessageData}/>
-}
+};
+
+const ChatContainer = connect(mapStateToProps, mapDispatchToProps)(Chat);
 
 export default ChatContainer;
