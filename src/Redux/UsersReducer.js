@@ -3,6 +3,7 @@ let initState = {
     pageSize: 5,
     totalUsersCount: 1,
     currentPage: 3,
+    isLoading: true,
 }
 const UsersReducer = (state = initState, action) => {
     switch (action.type) {
@@ -36,6 +37,8 @@ const UsersReducer = (state = initState, action) => {
             return {...state, users: action.users}
         case 'SetTotalUsersCount':
             return {...state, totalUsersCount: action.totalUsersCount}
+        case 'SetIsLoading':
+            return {...state, isLoading: action.isLoading}
 
         default:
             return state;
@@ -59,5 +62,9 @@ export const SetCurrentPageAC = (currentPage) => {
 export const SetTotalUsersCountAC = (usersCount) => {
     return {type: 'SetTotalUsersCount', totalUsersCount: usersCount}
 }
+export const SetIsLoadingAC = (IsLoading) => {
+    return {type:'SetIsLoading', isLoading:IsLoading}
+}
+
 
 
