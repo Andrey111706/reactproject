@@ -21,9 +21,10 @@ let initState = {
 
     ],
     postInputValue: "123",
+    profile: {}
 }
 
-const mainPageReducer = (state = initState, action) => {
+const userPageReducer = (state = initState, action) => {
     switch (action.type) {
         case 'ADD-POST': {
             let newMessage = {
@@ -44,14 +45,27 @@ const mainPageReducer = (state = initState, action) => {
                 postInputValue: action.text
             };
         }
+        case 'SetUserPage': {
+
+            return {
+                ...state,
+                profile: action.profile
+            };
+        }
         default:
             return state;
     }
 }
-export default mainPageReducer;
+export default userPageReducer;
 
-export const ChangePostTextActionCreator = (text) => {
+export const ChangePostText = (text) => {
     return {type: 'CHANGE-POST-TEXT', text: text}
 };
+export const SetUserPage = (profile) => {
 
-export const AddPostActionCreator = {type: 'ADD-POST'};
+    return {type: 'SetUserPage', profile: profile}
+}
+
+export const AddPost = () => {
+    return {type: 'ADD-POST'}
+}

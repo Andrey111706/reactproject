@@ -2,7 +2,7 @@ let initState = {
     users: [],
     pageSize: 5,
     totalUsersCount: 1,
-    currentPage: 3,
+    currentPage: 1,
     isLoading: true,
 }
 const UsersReducer = (state = initState, action) => {
@@ -47,23 +47,23 @@ const UsersReducer = (state = initState, action) => {
 }
 export default UsersReducer;
 
-export const FollowAC = (id) => {
+export const Follow = (id) => {
     return {type: 'Follow', id: id}
 };
-export const UnFollowAC = (id) => {
+export const UnFollow = (id) => {
     return {type: 'UnFollow', id: id}
 };
 export const SetUsers = (users) => {
     return {type: 'SetUsers', users: users}
 }
-export const SetCurrentPageAC = (currentPage) => {
+export const SetCurrentPage = (currentPage) => {
     return {type: 'SetCurrentPage', currentPage: currentPage}
 }
-export const SetTotalUsersCountAC = (usersCount) => {
+export const SetTotalUsersCount = (usersCount) => {
     return {type: 'SetTotalUsersCount', totalUsersCount: usersCount}
 }
-export const SetIsLoadingAC = (IsLoading) => {
-    return {type:'SetIsLoading', isLoading:IsLoading}
+export const SetIsLoading = (IsLoading) => {
+    return {type: 'SetIsLoading', isLoading: IsLoading}
 }
 
 

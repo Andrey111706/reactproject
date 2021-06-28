@@ -1,23 +1,15 @@
-import {AddPostActionCreator, ChangePostTextActionCreator} from "../../../Redux/mainPageReducer";
 import UserPosts from "./UserPosts";
 import {connect} from "react-redux";
+import {AddPost, ChangePostText} from "../../../Redux/UserPageReducer";
 
 let mapStateToProps = (state) => {
     return {
-        PostsData: state.mainPage.PostsData,
-        postInputValue: state.mainPage.postInputValue,
-    }
-};
-let mapDispatchToProps = (dispatch) => {
-    return {
-        changePostText: (text) => {
-            dispatch(ChangePostTextActionCreator(text))
-        },
-        addPost: () => {
-            dispatch(AddPostActionCreator)
-        }
+        PostsData: state.UserPage.PostsData,
+        postInputValue: state.UserPage.postInputValue,
+        profile:state.UserPage.profile,
     }
 };
 
-const UserPostsContainer = connect(mapStateToProps, mapDispatchToProps)(UserPosts);
-export default UserPostsContainer;
+
+export default connect(mapStateToProps, {ChangePostText,AddPost})(UserPosts);
+

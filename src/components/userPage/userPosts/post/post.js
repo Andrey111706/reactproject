@@ -1,10 +1,18 @@
 import React from "react";
 import s from "./post.module.css";
+import UserNotHaveImage from "./../../user-image.jpg"
 
 let Post = function (props) {
+    let UserPhoto = () => {
+        if (!props.profile.photos || props.profile.photos.small === null) {
+            return <img src={UserNotHaveImage} alt='1'/>
+        } else {
+            return <img src={props.profile.photos.small} alt='1'/>
+        }
+    }
     return (
         <div className={s.post}>
-            <img src='./user-image.jpg' alt={'user image'}/>
+           <UserPhoto/>
             <div className={s.username}>
                 {props.username}
             </div>

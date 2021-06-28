@@ -1,29 +1,29 @@
 import './App.css';
 import {BrowserRouter, Route} from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import UserPage from "./components/userPage/UserPage";
-
 import Feed from "./components/Feed/Feed";
 import Music from "./components/Music/Music";
 import Photo from "./components/Photo/Photo";
 import Settings from "./components/Settings/Settings";
 import ChatContainer from "./components/Chat/ChatContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import UserPageContainer from "./components/userPage/UserPageContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
-function App(props) {
+function App() {
+
     return (
         <BrowserRouter>
             <div className="App">
-                <Header/>
+                <HeaderContainer/>
                 <Navigation/>
                 <div className='app-content'>
-                    <Route path='/userPage'
-                           render={() => <UserPage store={props.store}/>}/>
+                    <Route path='/userPage/:userId'
+                           render={() => <UserPageContainer/>}/>
                     <Route path='/chat'
-                           render={() => <ChatContainer store={props.store}/>}/>
+                           render={() => <ChatContainer/>}/>
                     <Route path='/feed' render={() => <Feed/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/photo' render={() => <Photo/>}/>

@@ -1,34 +1,26 @@
 import {connect} from "react-redux";
 import Users from "./Users";
-import {
-    FollowAC,
-    SetCurrentPageAC,
-    SetIsLoadingAC,
-    SetTotalUsersCountAC,
-    SetUsers,
-    UnFollowAC
-} from "../../Redux/UsersReducer";
+import {Follow, SetCurrentPage, SetIsLoading, SetTotalUsersCount, SetUsers, UnFollow} from "../../Redux/UsersReducer";
 import React from "react";
-import * as axios from "axios";
 import loader from "../../assets/loader/loader.gif";
+import {getUsers} from "../../API/api";
 
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
         this.props.SetIsLoading(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+        getUsers(this.props.currentPage,this.props.pageSize).then(response => {
             this.props.SetIsLoading(false)
             this.props.SetUsers(response.data.items)
             this.props.SetTotalUsersCount(response.data.totalCount)
-            console.log(response.data.items.length)
         })
     }
 
     PageOnchange = (p) => {
         this.props.SetCurrentPage(p);
         this.props.SetIsLoading(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`).then(response => {
+        getUsers(p,this.props.pageSize).then(response => {
             this.props.SetUsers(response.data.items)
             this.props.SetIsLoading(false)
         })
@@ -38,7 +30,7 @@ class UsersContainer extends React.Component {
 
 
         return <>
-            {this.props.isLoading ? <img src={loader} alt={'loader'}/>: <div/>}
+            {this.props.isLoading ? <img src={loader} alt={'loader'}/> : <div/>}
             <Users currentPage={this.props.currentPage}
                    PageOnchange={this.PageOnchange}
                    users={this.props.users}
@@ -58,31 +50,15 @@ let mapStateToProps = (state) => {
         pageSize: state.UsersPage.pageSize,
         totalUsersCount: state.UsersPage.totalUsersCount,
         currentPage: state.UsersPage.currentPage,
-        isLoading:state.UsersPage.isLoading,
-    }
-}
-let mapDispatchToProps = (dispatch) => {
-    return {
-        Follow: (id) => {
-            dispatch(FollowAC(id))
-        },
-        UnFollow: (id) => {
-            dispatch(UnFollowAC(id))
-        },
-        SetUsers: (users) => {
-            dispatch(SetUsers(users))
-        },
-        SetCurrentPage: (currentPage) => {
-            dispatch(SetCurrentPageAC(currentPage))
-        },
-        SetTotalUsersCount: (currentPage) => {
-            dispatch(SetTotalUsersCountAC(currentPage))
-        },
-        SetIsLoading: (isLoading) => {
-            dispatch(SetIsLoadingAC(isLoading))
-        },
+        isLoading: state.UsersPage.isLoading,
     }
 }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, {
+    Follow,
+    UnFollow,
+    SetUsers,
+    SetCurrentPage,
+    SetTotalUsersCount,
+    SetIsLoading,
+})(UsersContainer)

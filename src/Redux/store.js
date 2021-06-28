@@ -1,5 +1,5 @@
 import chatPageReducer from "./chatPageReducer";
-import mainPageReducer from "./mainPageReducer";
+import userPageReducer from "./UserPageReducer";
 
 
 let store =
@@ -58,7 +58,7 @@ let store =
 
         dispatch(action) {
             chatPageReducer(this._state.chatPage,action);
-            mainPageReducer(this._state.mainPage,action);
+            userPageReducer(this._state.mainPage,action);
             this._renderTree();
         }
     }

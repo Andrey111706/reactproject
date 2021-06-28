@@ -17,26 +17,28 @@
 
 }
 
-.userInform .informvalue > div {
+.userInform .informValue > div {
     position: relative;
     color: darkgray;
     line-height: 1.6em;
 
 }
 
-.userInform .informvalue > div > div {
+.userInform .informValue > div > div {
     color: white;
     display: inline-block;
     position: absolute;
     left: 130px;
 }
 
-.userimage img {
+.userImage img {
 
     border-radius: 50%;
+    width: 225px;
+    height: 225px;
 }
 
-.userimage {
+.userImage {
     width: 225px;
     height: 225px;
 }
