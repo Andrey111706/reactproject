@@ -1,3 +1,5 @@
+import {getStatusAPI, setStatusAPI, userPageAPI} from "../API/api";
+
 let initState = {
     PostsData: [
         {
@@ -20,8 +22,8 @@ let initState = {
         },
 
     ],
-    postInputValue: "123",
-    profile: {}
+    profile: {},
+    status: ''
 }
 
 const userPageReducer = (state = initState, action) => {
@@ -31,18 +33,11 @@ const userPageReducer = (state = initState, action) => {
                 id: 6,
                 username: "KOHb",
                 time: "14:40 11.04.2021",
-                text: state.postInputValue
+                text: action.text
             }
             return {
                 ...state,
                 PostsData: [...state.PostsData, newMessage],
-                postInputValue: ''
-            };
-        }
-        case 'CHANGE-POST-TEXT': {
-            return {
-                ...state,
-                postInputValue: action.text
             };
         }
         case 'SetUserPage': {
@@ -52,20 +47,53 @@ const userPageReducer = (state = initState, action) => {
                 profile: action.profile
             };
         }
+        case 'SetStatus': {
+            return {
+                ...state,
+                status: action.status
+            };
+        }
         default:
             return state;
     }
 }
 export default userPageReducer;
 
-export const ChangePostText = (text) => {
-    return {type: 'CHANGE-POST-TEXT', text: text}
-};
+//AC
 export const SetUserPage = (profile) => {
-
     return {type: 'SetUserPage', profile: profile}
 }
+export const AddPost = (text) => {
+    return {type: 'ADD-POST', text}
+}
+export const SetStatus = (status) => {
+    return {type: 'SetStatus', status: status}
+}
 
-export const AddPost = () => {
-    return {type: 'ADD-POST'}
+//Thunks
+export const getUserPage = (userId) => {
+    return (dispatch) => {
+        userPageAPI(userId).then(response => {
+            dispatch(SetUserPage(response.data))
+        })
+    }
+}
+export const getStatus = (id) => {
+    return (dispatch) => {
+        getStatusAPI(id).then(response => {
+
+            dispatch(SetStatus(response.data))
+        })
+    }
+}
+export const updateStatus = (status) => {
+    return (dispatch) => {
+        setStatusAPI(status).then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(SetStatus(status));
+            }
+
+
+        })
+    }
 }

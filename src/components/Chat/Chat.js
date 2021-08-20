@@ -2,6 +2,9 @@ import React from "react";
 import s from "./Chat.module.css"
 import ChatUsersItem from "./ChatUsersItem/ChatUsersItem";
 import Message from "./Message/Message";
+import {Field, reduxForm} from "redux-form";
+import {Textarea} from "../../Utilities/FormControls/FormControls";
+import {MaxLength, RequireField} from "../../Utilities/Validators";
 
 
 const Chat = (props) => {
@@ -11,14 +14,11 @@ const Chat = (props) => {
     let chatMessages = props.chatMessageData.map(function (item) {
         return (<Message className={s.chatMessage} id={item.id} message={item.message} my={item.my}/>)
     });
-    let sendMessage = React.createRef();
-
-
-    let ontextchange = () => {
-        let text = sendMessage.current.value;
-        props.textChange(text)
-        debugger
+    let addMessageToDialog = (values) => {
+        props.AddMessage(values.text)
     }
+
+
     return (
         <div className={s.chatContainer}>
             <div className={s.chatList}>
@@ -31,17 +31,26 @@ const Chat = (props) => {
 
                 </div>
                 <div className={s.sendMessage}>
-                    <textarea onChange={ontextchange} name="text" placeholder={'Write, please!'} ref={sendMessage}
-                    value={props.textOnchangeValue}/>
-                    <div className={s.send}>
-                        <button onClick={props.addMessage}>Send</button>
-                        <button>Reset</button>
-                    </div>
+                    <ChatNewMessageReduxForm onSubmit={addMessageToDialog}/>
                 </div>
             </div>
 
         </div>
     )
 }
+const MaxLength50 = MaxLength(50)
+let ChatNewMessageForm = (props) => {
+    return (<form onSubmit={props.handleSubmit}>
+            <Field component={Textarea} name="text" placeholder={'Write, please!'}
+            validate={[RequireField,MaxLength50]}/>
+            <div className={s.send}>
+                <button>Send</button>
+                <button>Reset</button>
+            </div>
+        </form>
+    )
+}
+let ChatNewMessageReduxForm = reduxForm({form: 'ChatNewMessageForm'})(ChatNewMessageForm)
+
 
 export default Chat;

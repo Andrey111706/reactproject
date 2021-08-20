@@ -1,8 +1,13 @@
 import s from "./UserInform.module.css"
+import ProfileStatus from "./ProfileStatus.js"
 
 const UserInform = (props) => {
     return (
         <div className={s.userInform}>
+            <div className={s.status}>
+                <ProfileStatus status={props.status} getStatus={props.getStatus} updateStatus={props.updateStatus}/>
+
+            </div>
             <div className={s.informValue}>
                 <div>Username
                     <div >{props.UserName}</div>

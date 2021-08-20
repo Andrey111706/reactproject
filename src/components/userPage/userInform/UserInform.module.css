@@ -29,5 +29,13 @@
     width: 225px;
     height: 225px;
 }
+.status {
+    background-color:transparent;
+    border:none;
+
+}
+.status:active{
+    border:none;
+}
 
 

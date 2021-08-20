@@ -13,6 +13,8 @@ const UserPage = function (props) {
             return <img src={props.profile.photos.large} alt='1'/>
         }
     }
+
+
     return (
         <div className={`${s.userPage} userPage`}>
 
@@ -21,8 +23,8 @@ const UserPage = function (props) {
             </div>
 
             <UserInform UserName={props.profile.fullName} sex="Horse" city="London"
-                        familystage="Inseminate" work="farm"
-                        family="horse-brother"/>
+                        familystage="Inseminate" work="farm" family="horse-brother"
+                        status={props.status} getStatus={props.getStatus} updateStatus={props.updateStatus}/>
             <div className={s.userContent}>
                 <div>user-image</div>
                 <div>user-music</div>

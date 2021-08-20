@@ -1,9 +1,11 @@
 import React from "react";
 import UserPage from "./UserPage";
 import {connect} from "react-redux";
-import {SetUserPage} from "../../Redux/UserPageReducer";
+import {getStatus, getUserPage, updateStatus} from "../../Redux/UserPageReducer";
 import {withRouter} from "react-router-dom"
-import {userPageAPI} from "../../API/api";
+import {withAuthComponent} from "../../HOC/withAuth";
+import {compose} from "redux";
+import {getMyId, getPostInputValue, getProfile, getUserStatus} from "../../Redux/Selectors";
 
 
 class UserPageContainer extends React.Component {
@@ -11,17 +13,15 @@ class UserPageContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
         if (!userId) {
-            userId = 2
+            userId = this.props.userId
         }
-        userPageAPI(userId).then(response => {
-            this.props.SetUserPage(response.data)
-
-
-        })
+        this.props.getUserPage(userId)
+        this.props.getStatus(userId)
 
     }
 
     render() {
+
         return <>
             <UserPage {...this.props} />
         </>
@@ -30,10 +30,13 @@ class UserPageContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        postInputValue: state.UserPage.postInputValue,
-        profile: state.UserPage.profile,
+        postInputValue:getPostInputValue(state),
+        profile: getProfile(state),
+        status: getUserStatus(state),
+        userId:getMyId(state),
+
     }
 }
+export default compose(connect(mapStateToProps, {getUserPage,getStatus, updateStatus}),withRouter,
+        withAuthComponent)(UserPageContainer)
 
-let userPageContainerWithRouter = withRouter(UserPageContainer);
-export default connect(mapStateToProps, {SetUserPage})(userPageContainerWithRouter);

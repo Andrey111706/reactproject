@@ -19,8 +19,8 @@ const Header = function (props) {
                 <FriendActiveItem/>
             </div>
             <div className={s.loginHolder}>
-                {props.isAuth ? props.login :
-                    <NavLink to={'/login'}>Login</NavLink>}
+                {props.isAuth ?<div>{props.login}  - <button onClick={props.logOut}>Logout</button></div>
+                              :<NavLink to={'/login'}>Login</NavLink>}
 
             </div>
         </header>

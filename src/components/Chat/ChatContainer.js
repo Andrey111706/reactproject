@@ -1,22 +1,16 @@
-
-import {AddMessageActionCreator, ChangeTextActionCreator} from "../../Redux/chatPageReducer";
 import Chat from "./Chat";
 import {connect} from "react-redux";
+import {AddMessage} from "../../Redux/chatPageReducer";
+import {withAuthComponent} from "../../HOC/withAuth";
+import {compose} from "redux";
 
-let mapStateToProps = (state) =>{
+let mapStateToProps = (state) => {
     return {
-        chatUsersData:state.chatPage.chatUsersData,
-        chatMessageData:state.chatPage.chatMessageData,
-        textOnchangeValue:state.chatPage.textValue
-    }
-};
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addMessage: () => {dispatch(AddMessageActionCreator)},
-        textChange: (text) => {dispatch(ChangeTextActionCreator(text))}
-    }
-};
+        chatUsersData: state.chatPage.chatUsersData,
+        chatMessageData: state.chatPage.chatMessageData,
+        textOnchangeValue: state.chatPage.textValue,
 
-const ChatContainer = connect(mapStateToProps, mapDispatchToProps)(Chat);
+    }
+}
 
-export default ChatContainer;
+export default compose(connect(mapStateToProps, {AddMessage}),withAuthComponent)(Chat)

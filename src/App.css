@@ -19,6 +19,9 @@ body {
     color:white;
 
 }
+input{
+    color:black;
+}
 
 .App{
     width: 100%;

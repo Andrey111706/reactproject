@@ -6,18 +6,18 @@ fieldset {
 
 }
 
-#newpost textarea {
+.newPost textarea {
     resize: none;
     width:100%;
 
 }
 
-#newpost > * {
+.newPost  * {
     display: block;
     margin-bottom: 2vh;
     color: black;
 }
-.allposts{
+.allPosts{
     display: flex;
     flex-direction: column-reverse;
     position: relative;
@@ -26,7 +26,7 @@ fieldset {
     margin: 0;
     padding: 0;
 }
-.inputsub{
+.inputSub{
     padding:5px 10px;
     margin-left: 10px;
 }

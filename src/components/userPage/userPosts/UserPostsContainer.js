@@ -1,6 +1,6 @@
 import UserPosts from "./UserPosts";
 import {connect} from "react-redux";
-import {AddPost, ChangePostText} from "../../../Redux/UserPageReducer";
+import {AddPost} from "../../../Redux/UserPageReducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -11,5 +11,5 @@ let mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {ChangePostText,AddPost})(UserPosts);
+export default connect(mapStateToProps, {AddPost})(UserPosts);
 
