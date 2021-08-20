@@ -37,6 +37,7 @@ let mapStateToProps = (state) => {
 
     }
 }
+let JustTryToCommit
 export default compose(connect(mapStateToProps, {getUserPage,getStatus, updateStatus}),withRouter,
         withAuthComponent)(UserPageContainer)
 
