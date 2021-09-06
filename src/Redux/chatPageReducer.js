@@ -1,3 +1,7 @@
+// CONST CASES
+
+const ADD_CHAT_MESSAGE = 'AddMessageToChat'
+
 let initState = {
     chatUsersData: [
         {id: 1, name: "Viktoria"},
@@ -15,15 +19,15 @@ let initState = {
 }
 const chatPageReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'ADD-MESSAGE': {
-            let newmessage = {
+        case ADD_CHAT_MESSAGE: {
+            let newMessage = {
                 id: 6,
                 my: true,
                 message: action.text
             }
             return {
                 ...state,
-                chatMessageData: [...state.chatMessageData, newmessage],
+                chatMessageData: [...state.chatMessageData, newMessage],
             };
         }
 
@@ -34,5 +38,7 @@ const chatPageReducer = (state = initState, action) => {
 }
 export default chatPageReducer;
 
-
-export const AddMessage = (text) => {return {type: 'ADD-MESSAGE', text:text}};
+//AC
+export const AddMessage = (text) => {
+    return {type: ADD_CHAT_MESSAGE, text: text}
+};

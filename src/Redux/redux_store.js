@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import userPageReducer from "./UserPageReducer";
 import chatPageReducer from "./chatPageReducer";
 import UsersReducer from "./UsersReducer";
@@ -12,9 +12,11 @@ let reducers = combineReducers({
     chatPage: chatPageReducer,
     UsersPage:UsersReducer,
     AuthReducer:AuthReducer,
+    app:AppReducer,
     form:formReducer,
-    app:AppReducer
 })
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers,composeEnhancers( applyMiddleware(thunkMiddleware)
+));
+ window.store = store
 export default store;

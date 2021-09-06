@@ -1,11 +1,11 @@
 import React from "react";
 import UserPage from "./UserPage";
 import {connect} from "react-redux";
-import {getStatus, getUserPage, updateStatus} from "../../Redux/UserPageReducer";
+import {getStatus, getUserPage} from "../../Redux/UserPageReducer";
 import {withRouter} from "react-router-dom"
 import {withAuthComponent} from "../../HOC/withAuth";
 import {compose} from "redux";
-import {getMyId, getPostInputValue, getProfile, getUserStatus} from "../../Redux/Selectors";
+import {getMyId, getProfile} from "../../Redux/Selectors";
 
 
 class UserPageContainer extends React.Component {
@@ -17,27 +17,24 @@ class UserPageContainer extends React.Component {
         }
         this.props.getUserPage(userId)
         this.props.getStatus(userId)
-
     }
 
     render() {
-
-        return <>
-            <UserPage {...this.props} />
-        </>
+        return (
+            <>
+                <UserPage {...this.props} />
+            </>
+        )
     }
 }
 
 let mapStateToProps = (state) => {
     return {
-        postInputValue:getPostInputValue(state),
         profile: getProfile(state),
-        status: getUserStatus(state),
-        userId:getMyId(state),
-
+        userId: getMyId(state),
     }
 }
-let JustTryToCommit
-export default compose(connect(mapStateToProps, {getUserPage,getStatus, updateStatus}),withRouter,
-        withAuthComponent)(UserPageContainer)
+
+export default compose(connect(mapStateToProps, {getUserPage, getStatus}), withRouter,
+    withAuthComponent)(UserPageContainer)
 

@@ -32,6 +32,7 @@
 .status {
     background-color:transparent;
     border:none;
+    color:white;
 
 }
 .status:active{

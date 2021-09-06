@@ -4,13 +4,6 @@ body {
     color: white;
     background-attachment: fixed;
     font-size: 3vh;
-
-
-
-}
-
-.App > * {
-    outline: 1px solid red;
 }
 
 * {
@@ -36,7 +29,7 @@ input{
 
 }
 
-.head {
+.headGrid {
     grid-area: head;
 }
 
@@ -46,9 +39,11 @@ input{
 }
 
 .app-content {
+    display: inline-block;
     grid-area: content;
     min-width: 720px;
-
+    margin-right: 2px;
+    outline: 1px solid cadetblue;
 }
 
 .footer {

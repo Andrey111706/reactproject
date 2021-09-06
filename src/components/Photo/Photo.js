@@ -1,9 +1,8 @@
- import  s from "./Photo.module.css"
 const Photo = () => {
     return (
-        <div >
+        <div>
             Hello!
         </div>
- )
- }
- export default  Photo;
+    )
+}
+export default Photo;

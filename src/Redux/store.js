@@ -1,12 +1,12 @@
 import chatPageReducer from "./chatPageReducer";
 import userPageReducer from "./UserPageReducer";
 
-
+//TO REMEMBER!
 let store =
     {
         _state: {
             mainPage: {
-                PostsData: [
+                postsData: [
                     {
                         id: 1,
                         username: "Jack Black",
@@ -67,4 +67,35 @@ let store =
 
 
 window.state = store._state;
-export default store;
+// export default store;
+// export const acceptFollow = (id) => {
+//     return {type: FOLLOW_FRIEND, id: id}
+// };
+// export const acceptUnFollow = (id) => {
+//     return {type: UNFOLLOW_FRIEND, id: id}
+// };
+// export const SetCurrentPage = (currentPage) => {
+//     return {type: 'SetCurrentPage', currentPage: currentPage}
+// }
+// export const SetUsers = (users) => {
+//     return {type: SET_USERS_TO_LIST, users: users}
+// }
+// export const SetTotalUsersCount = (usersCount) => {
+//     return {type: SET_CURRENT_PAGE_IN_USER_LIST, totalUsersCount: usersCount}
+// }
+
+// export const acceptFollow = (id) => {
+//     return {type: FOLLOW_FRIEND, id: id}
+// };
+// export const acceptUnFollow = (id) => {
+//     return {type: UNFOLLOW_FRIEND, id: id}
+// };
+// export const SetCurrentPage = (currentPage) => {
+//     return {type: 'SetCurrentPage', currentPage: currentPage}
+// }
+// export const SetUsers = (users) => {
+//     return {type: SET_USERS_TO_LIST, users: users}
+// }
+// export const SetTotalUsersCount = (usersCount) => {
+//     return {type: SET_CURRENT_PAGE_IN_USER_LIST, totalUsersCount: usersCount}
+// }

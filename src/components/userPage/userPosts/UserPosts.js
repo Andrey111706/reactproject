@@ -7,21 +7,21 @@ import {Textarea} from "../../../Utilities/FormControls/FormControls";
 
 
 const UserPosts = function (props) {
-    let Posts = props.PostsData.map(function (post) {
-        return <Post id={post.id} username={post.username} time={post.time} text={post.text} profile={props.profile}/>
+    let Posts = props.postsData.map(function (post) {
+        return <Post id={post.id} username={post.username}
+                     time={post.time} text={post.text}
+                     profile={props.profile} key={post.id}/>
     });
-let addNewPostToRedux = (values)=>{
-    props.AddPost(values.text)
-}
-
-
+    let addNewPostToPage = (values) => {
+        props.AddPost(values.text)
+    }
     return (
         <div>
             <div>
                 <fieldset>
                     <legend>New Post</legend>
                     <div className={s.newPost}>
-                    <AddUserPostReduxForm onSubmit={addNewPostToRedux}/>
+                        <AddUserPostReduxForm onSubmit={addNewPostToPage}/>
                     </div>
                 </fieldset>
             </div>
@@ -34,14 +34,16 @@ let addNewPostToRedux = (values)=>{
     )
 
 }
-const MaxLength25 = MaxLength(25)
+const MaxLength90 = MaxLength(90)
 let AddUserPostForm = (props) => {
-    return (<form onSubmit={props.handleSubmit}>
+
+    return (
+        <form onSubmit={props.handleSubmit}>
             <Field component={Textarea} rows="4" name="text" placeholder={'Write, please!'}
-                validate={[RequireField, MaxLength25]}/>
+                   validate={[RequireField, MaxLength90]}/>
             <button className={s.inputSub}>Отправить</button>
         </form>
     )
 }
-let AddUserPostReduxForm = reduxForm({form:'AddUserPostForm'})(AddUserPostForm)
+let AddUserPostReduxForm = reduxForm({form: 'AddUserPostForm'})(AddUserPostForm)
 export default UserPosts;

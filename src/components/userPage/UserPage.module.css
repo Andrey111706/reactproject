@@ -4,10 +4,11 @@
     grid-template-columns:  auto 1fr;
     grid-template-rows: auto auto;
     grid-gap: 2vw;
+    margin-right: 1px;
 
 }
 .userPage > div {
-    outline: 1px solid blue;
+
 }
 
 .userInform {

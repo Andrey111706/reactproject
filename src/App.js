@@ -21,6 +21,7 @@ import Loader from "./assets/loader/Loader";
 class App extends React.Component {
     componentDidMount() {
         this.props.initializeApp()
+
     }
 
     render() {
@@ -29,7 +30,6 @@ class App extends React.Component {
         }
 
         return (
-
             <div className="App">
                 <HeaderContainer/>
                 <Navigation/>
